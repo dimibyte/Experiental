@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1369655524 source:/home/dimibyte/Desktop/Projects/Experiental/master/3dmath.cpp
+	"3dmath.h"
+	<math.h>
+
+1369657058 /home/dimibyte/Desktop/Projects/Experiental/master/3dmath.h
+	<cfloat>
+
+1371192322 source:/home/dimibyte/Desktop/Projects/Experiental/master/game.cpp
+
+1372580434 source:/home/dimibyte/Desktop/Projects/Experiental/master/globals.cpp
+	"globals.h"
+
+1372580640 /home/dimibyte/Desktop/Projects/Experiental/master/globals.h
+	<SDL/SDL.h>
+
+1372581026 source:/home/dimibyte/Desktop/Projects/Experiental/master/graphics/openGL.cpp
+	"graphics/openGL.h"
+	"globals.h"
+
+1372580992 /home/dimibyte/Desktop/Projects/Experiental/master//graphics/openGL.h
+	<SDL/SDL_opengl.h>
+
+1372580640 /home/dimibyte/Desktop/Projects/Experiental/master//globals.h
+	<SDL/SDL.h>
+
+1372581127 source:/home/dimibyte/Desktop/Projects/Experiental/master/main.cpp
+	"main.h"
+	"globals.h"
+	"system/SDL.h"
+	"graphics/openGL.h"
+
+1371192260 /home/dimibyte/Desktop/Projects/Experiental/master/main.h
+
+1371959598 /home/dimibyte/Desktop/Projects/Experiental/master/system/SDL.h
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	"globals.h"
+
+1372580992 /home/dimibyte/Desktop/Projects/Experiental/master/graphics/openGL.h
+	<SDL/SDL_opengl.h>
+
+1372581184 source:/home/dimibyte/Desktop/Projects/Experiental/master/system/SDL.cpp
+	"system/SDL.h"
+
+1371959598 /home/dimibyte/Desktop/Projects/Experiental/master//system/SDL.h
+	<SDL/SDL.h>
+	<SDL/SDL_opengl.h>
+	"globals.h"
+
+1374393329 source:/home/dimibyte/Desktop/Projects/Experiental/master/graphics/3dmath.cpp
+	"graphics/3dmath.h"
+	<math.h>
+
+1369657058 /home/dimibyte/Desktop/Projects/Experiental/master//graphics/3dmath.h
+	<cfloat>
+
