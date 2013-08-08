@@ -8,8 +8,6 @@ extern int SCREEN_HEIGHT;
 extern int SCREEN_BPP;
 extern int SCREEN_FPSL;
 
-extern SDL_Event event;
-
 extern bool bQuit;
 
 #endif      //_GLOBALS_H_
