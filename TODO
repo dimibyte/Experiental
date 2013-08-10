@@ -1,0 +1,30 @@
+
+
+* --- Engine --- *
+
+NONE sdl-net for dividing into client/server
+
+WIP CEGUI for menus, interface
+
+NONE Logging system
+
+NONE tinyXML as main XML parser     <-- do we really need this?
+
+NONE Player class
+
+NONE Planet generator
+
+NONE Bullet physics     <-- engine
+
+NONE Script engine  <-- more ideas
+
+NONE Audio (FLAC, sdl-sound?)   <-- this should be done after actual gameplay realization
+
+
+* --- Game --- *
+
+
+
+
+
+* --- Ideas --- *

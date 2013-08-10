@@ -4,12 +4,14 @@
 	<Project>
 		<Option title="Experiental" />
 		<Option pch_mode="2" />
+		<Option default_target="LDebug64" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="LDebug64">
 				<Option platforms="Unix;" />
-				<Option output="bin/Debug64/Experiental" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug64/" />
+				<Option output="../bin/Debug64/Experiental" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../" />
+				<Option object_output="../obj/Debug64/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -18,8 +20,9 @@
 			</Target>
 			<Target title="LRelease64">
 				<Option platforms="Unix;" />
-				<Option output="bin/Release64/Experiental" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release64/" />
+				<Option output="../bin/Release64/Experiental" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../" />
+				<Option object_output="../obj/Release64/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -31,8 +34,9 @@
 			</Target>
 			<Target title="WDebug64">
 				<Option platforms="Windows;" />
-				<Option output="bin/Debug64/Experiental" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug64/" />
+				<Option output="../bin/Debug64/Experiental" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../" />
+				<Option object_output="../obj/Debug64/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -41,8 +45,9 @@
 			</Target>
 			<Target title="WRelease64">
 				<Option platforms="Windows;" />
-				<Option output="bin/Release64/Experiental" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release64/" />
+				<Option output="../bin/Release64/Experiental" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../" />
+				<Option object_output="../obj/Release64/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -62,9 +67,25 @@
 			<Add directory="./" />
 		</Compiler>
 		<Linker>
-			<Add option="-lSDL -lGL -lGLU" />
+			<Add option="-lSDL -lGL -lGLU -lIL -lILU -lCEGUIBase -lCEGUIOpenGLRenderer" />
 			<Add directory="./" />
 		</Linker>
+		<Unit filename="CLog.cpp" />
+		<Unit filename="CLog.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="CMMBlob.cpp" />
+		<Unit filename="CMMBlob.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="CMMPointer.cpp" />
+		<Unit filename="CMMPointer.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="IMMObject.cpp" />
+		<Unit filename="IMMObject.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="game.cpp" />
 		<Unit filename="game.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -74,7 +95,17 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="graphics/3dmath.cpp" />
-		<Unit filename="graphics/3dmath.h" />
+		<Unit filename="graphics/3dmath.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="graphics/cegui.cpp" />
+		<Unit filename="graphics/cegui.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="graphics/devIL.cpp" />
+		<Unit filename="graphics/devIL.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="graphics/openGL.cpp" />
 		<Unit filename="graphics/openGL.h">
 			<Option target="&lt;{~None~}&gt;" />

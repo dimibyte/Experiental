@@ -2,7 +2,7 @@
 #include <math.h>
 
 ///Cross
-//Vozvrashaet vektor perpendikuljarnyj dvum vektoram
+//Возвращает вектор перепендикулярный двум векторам
 CVector3 Cross(CVector3 vVector1, CVector3 vVector2) {
     CVector3 vNormal;
 
@@ -14,7 +14,7 @@ CVector3 Cross(CVector3 vVector1, CVector3 vVector2) {
 }
 
 ///Vector
-//Vozvrashaet vektor mezhdu dvumja tochkami
+//Возвращает вектор между двумя точками
 CVector3 Vector(CVector3 vPoint1, CVector3 vPoint2) {
     CVector3 vVector = {0};
 
@@ -26,13 +26,13 @@ CVector3 Vector(CVector3 vPoint1, CVector3 vPoint2) {
 }
 
 ///Magnitude
-//Vozvrashaet velichinu normali, ispoljzuja teoremy pifagora
+//Возвращает величину нормали, используя теорему Пифагора
 float Magnitude(CVector3 vNormal) {
     return sqrt((vNormal.x * vNormal.x) + (vNormal.y * vNormal.y) + (vNormal.z * vNormal.z));
 }
 
 ///Normalize
-//Vozvrashaet normalizovannyj vektor (s dlinnoj 1);
+//Возвращает нормализованный вектор (с длинной 1)
 CVector3 Normalize(CVector3 vNormal) {
     float magnitude = Magnitude(vNormal);
 
@@ -44,8 +44,8 @@ CVector3 Normalize(CVector3 vNormal) {
 }
 
 ///Normal
-//Vozvrashaet normalj poligona. Iz treugoljnika (a eto 3 vektora) my berjom nizhnjuu levuju storonu,
-//dlja vychislenija perpendikuljara (Cross()). V nashem sluchae my rabotaem v protivo-chasovom napravlenii.
+//Возвращает нормаль полигона. Из треугольника (а это 3 вектора) мы берём нижнюю левую сторону,
+//для вычисления перпендикуляра (Cross()). В нешем случае мы работаем в противо-часовом направлении.
 CVector3 Normal(CVector3 vTriangle[]) {
     CVector3 vVector1 = Vector(vTriangle[2], vTriangle[0]);
     CVector3 vVector2 = Vector(vTriangle[1], vTriangle[0]);
@@ -57,8 +57,8 @@ CVector3 Normal(CVector3 vTriangle[]) {
 }
 
 ///PlaneDistance
-//Vozvrashaet rasstojanie ploskosti ot nachala koordinat (0, 0, 0).
-//Prinimaet normalj k ploskosti i LJUBUJU tochku, lezhashuju na etoj ploskosti
+//Возвращает расстрояние плоскости от начала координат(0, 0, 0).
+//Принимает нормаль плоскости и ЛЮБУЮ точку, лежащую на этой плоскости.
 float PlaneDistance(CVector3 Normal, CVector3 Point) {
     float distance = 0;
     //A*x + B*y + C*z + D = 0; gde A,B,C eto znachenija X,Y,Z nashej normali, a x,y,z eto koordianty tochki
@@ -68,7 +68,7 @@ float PlaneDistance(CVector3 Normal, CVector3 Point) {
 }
 
 ///IntersectedPlane
-//Prinimaet treugoljnik(ploskostj) i liniju, i vozvrashaet true pri ih peresechenii
+//Принимает треугольник(плоскость) и линию, и возвращает true при их пересечении.
 bool IntersectedPlane(CVector3 vPoly[], CVector3 vLine[], CVector3 &vNormal, float &originDistance) {
     float distance1 = 0, distance2 = 0;
     vNormal = Normal(vPoly);

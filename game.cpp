@@ -17,7 +17,7 @@ void Game::Start()
     CEGUI::WindowManager& winManager = GUI::init_CEGUI(screen) ;
     //CEGUI::OpenGLRenderer& myRenderer = CEGUI::OpenGLRenderer::create();
     GUI::create_gui( winManager ) ;
-    _gameState = Game::playing;
+    _gameState = playing;
 
     /***    Loop    ***/
     while (!isExiting())
@@ -31,7 +31,7 @@ void Game::Start()
 
 bool Game::isExiting()
 {
-    if(_gameState == Game::exiting)
+    if(_gameState == exiting)
         return true;
     else
         return false;
@@ -43,13 +43,11 @@ void Game::GameLoop()
     double last_time_pulse = 0.001 * static_cast<double>(SDL_GetTicks());   //for CEGUI
     bool must_quit = false;     //for CEGUI
 
-    switch(Game::_gameState)
+    switch(_gameState)
     {
-        case Game::showingMenu:
-        {
-        }
+        case showingMenu: { }
 
-        case Game::playing:
+        case playing:
         {
             /***    Events     ***/
             while(SDL_PollEvent(&event))
