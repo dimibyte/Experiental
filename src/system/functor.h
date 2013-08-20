@@ -1,8 +1,7 @@
 #ifndef _FUNCTOR_H_
 #define _FUNCTOR_H_
 
-#include "IMMObject.h"
-#include "CMMPointer.h"
+#include "system/mmanager.h"
 
 class Functor : public IMMObject
 {

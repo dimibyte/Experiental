@@ -1,9 +1,10 @@
-#include "CLog.h"
+///Logging system
+
+#include "system/CLog.h"
 
 #include <stdio.h>
 #include <stdarg.h>
 
-//unique for me.
 typedef unsigned char  BYTE; // 1byte
 typedef unsigned short  WORD; // 2bytes
 typedef unsigned long  DWORD; //4bytes

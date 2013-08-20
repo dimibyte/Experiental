@@ -74,18 +74,11 @@
 		<Unit filename="CLog.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="CMMBlob.cpp" />
-		<Unit filename="CMMBlob.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="CMMPointer.cpp" />
-		<Unit filename="CMMPointer.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="IMMObject.cpp" />
-		<Unit filename="IMMObject.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="dator.cpp" />
+		<Unit filename="dator.h" />
+		<Unit filename="engine.h" />
+		<Unit filename="functor.cpp" />
+		<Unit filename="functor.h" />
 		<Unit filename="game.cpp" />
 		<Unit filename="game.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -114,10 +107,19 @@
 		<Unit filename="main.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="mmanager.cpp" />
+		<Unit filename="mmanager.h" />
+		<Unit filename="profiler.cpp" />
+		<Unit filename="profiler.h" />
+		<Unit filename="ringBuffer.cpp" />
+		<Unit filename="ringBuffer.h" />
+		<Unit filename="singleton.cpp" />
+		<Unit filename="singleton.h" />
 		<Unit filename="system/SDL.cpp" />
 		<Unit filename="system/SDL.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="system/settingsManager.cpp" />
 		<Extensions>
 			<envvars />
 			<code_completion />

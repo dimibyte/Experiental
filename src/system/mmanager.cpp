@@ -1,4 +1,6 @@
-#include "IMMObject.h"
+///A nice little base class to automatically memory-manage our objects.
+
+#include "system/mmanager.h"
 
 //a 'static initialiser' is needed in one of the source files
 //to give the std::list a definetive presence

@@ -23,7 +23,7 @@ NONE Audio (FLAC, sdl-sound?)   <-- this should be done after actual gameplay re
 
 * --- Game --- *
 
-
+NONE Menu and interface is on surface, using RenderToTexture
 
 
 
