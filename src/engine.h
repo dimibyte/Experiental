@@ -29,10 +29,16 @@
 //#include "resource.h"
 #endif
 
+#include <system/SDL.h>
+
 //foundation layer headers
-#include "mmanager.h"
-#include "CLog.h"
-#include "functor.h"
-#include "singleton.h"
+#include "system/mmanager.h"
+#include "system/CLog.h"
+#include "system/functor.h"
+#include "system/dator.h"
+#include "system/singleton.h"
+#include "system/kernel.h"
+#include "system/ringBuffer.h"
+#include "system/settingsManager.h"
 
 #endif      //_ENGINE_H_

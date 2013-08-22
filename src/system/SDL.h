@@ -27,6 +27,7 @@
 
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
+#include <SDL/SDL_net.h>
 
 #include "globals.h"
 
@@ -34,4 +35,4 @@ SDL_Surface & initSDL(int screenWidth, int screenHeight, int screenBPP);
 void cleanupSDL();
 SDL_Surface& returnScreen();
 
-#endif      //_SDL_INIT_H_
+#endif      //_SYSTEM_SDL_H_

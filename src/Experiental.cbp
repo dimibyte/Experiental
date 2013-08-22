@@ -67,7 +67,7 @@
 			<Add directory="./" />
 		</Compiler>
 		<Linker>
-			<Add option="-lSDL -lGL -lGLU -lIL -lILU -lCEGUIBase -lCEGUIOpenGLRenderer" />
+			<Add option="-lSDL -lSDL_net -lGL -lGLU -lIL -lILU -lCEGUIBase -lCEGUIOpenGLRenderer" />
 			<Add directory="./" />
 		</Linker>
 		<Unit filename="engine.h" />
@@ -109,6 +109,8 @@
 		<Unit filename="system/dator.h" />
 		<Unit filename="system/functor.cpp" />
 		<Unit filename="system/functor.h" />
+		<Unit filename="system/kernel.cpp" />
+		<Unit filename="system/kernel.h" />
 		<Unit filename="system/mmanager.cpp" />
 		<Unit filename="system/mmanager.h" />
 		<Unit filename="system/profiler.cpp" />
