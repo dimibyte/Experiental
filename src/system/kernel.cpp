@@ -42,16 +42,16 @@ CKernel::~CKernel()
 
 int CKernel::execute()
 {
-    while(taskList.size())
+    while(taskList.empty())
     {
         {
-            //PROFILE("Kernel task loop");
+            PROFILE("Kernel task loop");
 
-            std::list< CMMPointer<ITask> >::iterator it;
+            std::list< CMMPointer<ITask> >::iterator it, thisIt;
             for(it = taskList.begin(); it != taskList.end(); )
             {
                 ITask *t = (*it);
-                it++;
+                ++it;
                 if(!t->canKill)
                     t->update();
             }
@@ -59,11 +59,11 @@ int CKernel::execute()
             for(it = taskList.begin(); it != taskList.end(); )
             {
                 ITask *t = (*it);
-                it++;
+                thisIt = it; ++it;
                 if(t->canKill)
                 {
                     t->stop();
-                    taskList.remove(t);
+                    taskList.erase(thisIt);
                     t = 0;
                 }
             }
@@ -76,14 +76,14 @@ int CKernel::execute()
     return 0;
 }
 
-bool CKernel::addTask(CMMPointer<ITask> &t)
+bool CKernel::addTask(const CMMPointer<ITask> &t)
 {
     if(!t->start())
         return false;
 
     //keep the order of priorities straight
     std::list< CMMPointer<ITask> >::iterator it;
-    for(it = taskList.begin(); it != taskList.end(); it++)
+    for(it = taskList.begin(); it != taskList.end(); ++it)
     {
         CMMPointer<ITask> &comp = (*it);
         if(comp->priority > t->priority)
@@ -113,7 +113,7 @@ void CKernel::resumeTask(CMMPointer<ITask> &t)
         pausedTaskList.remove(t);
         //keep the order of priorities straight
         std::list< CMMPointer<ITask> >::iterator it;
-        for(it = taskList.begin(); it != taskList.end(); it++)
+        for(it = taskList.begin(); it != taskList.end(); ++it)
         {
             CMMPointer<ITask> &comp = (*it);
             if(comp->priority > t->priority)
@@ -133,7 +133,7 @@ void CKernel::removeTask(CMMPointer<ITask> &t)
 
 void CKernel::killAllTasks()
 {
-    for(std::list< CMMPointer<ITask> >::iterator it = taskList.begin(); it != taskList.end(); it++)
+    for(std::list< CMMPointer<ITask> >::iterator it = taskList.begin(); it != taskList.end(); ++it)
     {
         (*it)->canKill = true;
     }

@@ -22,17 +22,13 @@
 #include "system/profiler.h"
 #include "system/CLog.h"
 
-unsigned long IDS_PROFILE_HEADER1 = 10;
-unsigned long IDS_PROFILE_HEADER2 = 11;
-unsigned long IDS_PROFILE_SAMPLE = 12;
-
 int CProfileSample::lastOpenedSample = -1;
 int CProfileSample::openSampleCount = 0;
 CProfileSample::profileSample CProfileSample::samples[MAX_PROFILER_SAMPLES];
 IProfilerOutputHandler *CProfileSample::outputHandler = 0;
 float CProfileSample::rootBegin = 0.0f;
 float CProfileSample::rootEnd = 0.0f;
-//bool CProfileSample::bProfilerIsRunning = true;
+bool CProfileSample::bProfilerIsRunning = true;
 
 void CProfileLogHandler::beginOutput()
 {
@@ -72,6 +68,8 @@ inline float CProfileSample::getTime()
 
 CProfileSample::CProfileSample(std::string sampleName)
 {
+    if(!bProfilerIsRunning)
+        return;
     //The first thing we need to do is restore our previuous pieces of sample
     //data from storage. That is, look in the samples[] array to see if there's
     //a valid sample with our name on it
@@ -140,6 +138,8 @@ CProfileSample::CProfileSample(std::string sampleName)
 
 CProfileSample::~CProfileSample()
 {
+    if(!bProfilerIsRunning)
+        return;
     float fEndTime = getTime();
     //phew... ok, we're done timing
     samples[iSampleIndex].bIsOpen = false;
@@ -162,6 +162,9 @@ CProfileSample::~CProfileSample()
 
 void CProfileSample::output()
 {
+    if(!bProfilerIsRunning)
+        return;
+
     assert(outputHandler && "Profiler has no output handler set");
 
     outputHandler->beginOutput();

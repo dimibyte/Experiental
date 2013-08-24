@@ -15,33 +15,27 @@
  *  along with Experiental.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _GAME_H_
-#define _GAME_H_
+#ifndef _SYSTEM_SOUNDTASK_H_
+#define _SYSTEM_SOUNDTASK_H_
 
-#include "engine.h"
+#include "system/kernel.h"
 
-class Game
+class CSoundTask : public ITask
 {
 public:
-    static void Start();
+    CSoundTask();
+    virtual ~CSoundTask();
 
-private:
-    static bool isExiting();
-    static void GameLoop();
-    enum GameState {uninitialized, showingSplash, paused, showingMenu, playing, exiting};
-    static GameState _gameState;
-    //static SDL_Surface *screen;
+    bool start();
+    void onSuspend();
+    void update();
+    void onResume();
+    void stop();
+
+    AUTO_SIZE;
+
+protected:
+    CMMPointer< CMMDynamicBlob<bool> > isPaused;
 };
 
-class CApplication : public Singleton<CApplication>
-{
-public:
-    CMMPointer<CVideoUpdate> videoTask;
-    CMMPointer<CGlobalTimer> globalTimer;
-    CMMPointer<CInputTask> inputTask;
-    CMMPointer<CSoundTask> soundTask;
-
-    void run(int argc, char** argv);
-};
-
-#endif      //_GAME_H_
+#endif      //_SYSTEM_SOUNDTASK_H_

@@ -52,6 +52,8 @@ public:
 
     static IProfilerOutputHandler *outputHandler;
 
+    static bool bProfilerIsRunning;
+
 protected:
     //index into the array of samples
     int iSampleIndex;
@@ -92,5 +94,11 @@ protected:
     static int openSampleCount;
     static float rootBegin, rootEnd;
 };
+
+#ifdef DEBUG
+#define PROFILE(name) CProfileSample _profile_sample(name);
+#else
+#define PROFILE(name)
+#endif
 
 #endif      //_PROFILER_H_

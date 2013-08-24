@@ -21,8 +21,10 @@
 #ifndef _ENGINE_H_
 #define _ENGINE_H_
 
+#if _MSC_VER > 1000
 //disable the warning about symbol names being too long for the debug information (happens a lot with STL)
 #pragma warning ( disable : 4786 )
+#endif // _MSC_VER > 1000
 
 #ifdef WIN32
 #include <windows.h>
@@ -37,8 +39,18 @@
 #include "system/functor.h"
 #include "system/dator.h"
 #include "system/singleton.h"
+#include "system/profiler.h"
 #include "system/kernel.h"
 #include "system/ringBuffer.h"
 #include "system/settingsManager.h"
+
+//task pool
+#include "system/globalTimer.h"
+#include "system/soundTask.h"
+#include "system/inputTask.h"
+#include "system/videoUpdate.h"
+
+//miscellanous
+
 
 #endif      //_ENGINE_H_

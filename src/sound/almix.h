@@ -15,33 +15,30 @@
  *  along with Experiental.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _GAME_H_
-#define _GAME_H_
+#ifndef _SOUND_ALMIX_H_
+#define _SOUND_ALMIX_H_
 
-#include "engine.h"
+#include <SDL/SDL_mixer.h>
+#include <AL/al.h>
+#include <AL/alc.h>
 
-class Game
+#include <string>
+
+#include "system/singleton.h"
+
+class COpenALMixer : public Singleton<COpenALMixer>
 {
-public:
-    static void Start();
-
 private:
-    static bool isExiting();
-    static void GameLoop();
-    enum GameState {uninitialized, showingSplash, paused, showingMenu, playing, exiting};
-    static GameState _gameState;
-    //static SDL_Surface *screen;
-};
-
-class CApplication : public Singleton<CApplication>
-{
+    ALuint buffer;
+    ALuint source;
+    ALCdevice* device;
+    ALCcontext* context;
 public:
-    CMMPointer<CVideoUpdate> videoTask;
-    CMMPointer<CGlobalTimer> globalTimer;
-    CMMPointer<CInputTask> inputTask;
-    CMMPointer<CSoundTask> soundTask;
+    COpenALMixer();
+    virtual ~COpenALMixer();
 
-    void run(int argc, char** argv);
+    void playSound(std::string wavfile, bool loop);    //maybe bool instead of void?
+//    void playSound(std::string flacfile);
 };
 
-#endif      //_GAME_H_
+#endif      //_SOUND_ALMIX_H_

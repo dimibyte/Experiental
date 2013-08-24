@@ -15,6 +15,8 @@
  *  along with Experiental.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+ ///Kernel/Game Loop/Task Manager
+
 #ifndef _SYSTEM_KERNEL_H_
 #define _SYSTEM_KERNEL_H_
 
@@ -43,7 +45,7 @@ public:
 
     int execute();
 
-    bool addTask(CMMPointer<ITask> &t);
+    bool addTask(const CMMPointer<ITask> &t);
     void suspendTask(CMMPointer<ITask> &t);
     void resumeTask(CMMPointer<ITask> &t);
     void removeTask(CMMPointer<ITask> &t);

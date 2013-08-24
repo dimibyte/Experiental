@@ -24,6 +24,7 @@
 
 #include <list>
 #include <cassert>
+#include <stdlib.h>
 
 //define a quick macro to make things easier on derived classes
 #define AUTO_SIZE unsigned long size(){ return sizeof(*this); }
@@ -31,9 +32,13 @@
 class IMMObject
 {
 private:
-    static std::list<IMMObject *> liveObjects;
-    static std::list<IMMObject *> deadObjects;
+    static IMMObject * liveObjects;
+    static IMMObject * deadObjects;
+    IMMObject *nextObject;
+    IMMObject *prevObject;
     long refCount;
+    bool bIsStackAllocated;
+    static std::list<IMMObject*> heapObjects;
 protected:
     IMMObject();
     virtual ~IMMObject();
@@ -43,6 +48,8 @@ public:
     static void collectGarbage();
     static void collectRemainingObjects(bool bEmitWarnings = false);
     virtual unsigned long size() = 0;
+    void *operator new(size_t objsize);
+    void operator delete(void* obj);
 };
 
 ///Smart pointer
@@ -142,7 +149,7 @@ protected:
 public:
     inline T& operator [](int index)
     {
-        assert(index < i && "Bad index on CMMBlob::[]");
+        assert(index < i);// && "Bad index on CMMBlob::[]");
         return buffer[index];
     }
     inline operator T*()
@@ -161,7 +168,7 @@ protected:
 public:
     inline T& operator [](int index)
     {
-        assert(index<dataSize && "Bad index on CMMDynamicBlob::[]");
+        assert(((index >= 0) && ((unsigned int)index < dataSize)));// && "Bad index on CMMDynamicBlob::[]");
         return buffer[index];
     }
     inline operator T*()
@@ -173,7 +180,7 @@ public:
     {
         dataSize = size;
         buffer = new T[size];
-        assert(buffer != 0 && "DynamicBlob buffer could not be created - out of memory?");
+        //assert(buffer != 0 && "DynamicBlob buffer could not be created - out of memory?");
     }
     ~CMMDynamicBlob()
     {

@@ -20,10 +20,20 @@
 #include "system/SDL.h"
 #include "graphics/openGL.h"
 #include "game.h"
+#include "sound/almix.h"
+
+#include <iostream>
 
 int main(int argc, char** argv)
 {
-    Game::Start();
+    //Game::Start();
+
+    new CApplication();
+    CApplication::getSingleton().run(argc, argv);
+    delete CApplication::getSingletonPtr();
+
+    //clean up any remaining unreleased objects
+    IMMObject::collectRemainingObjects(true);
 
     return 0;
 }

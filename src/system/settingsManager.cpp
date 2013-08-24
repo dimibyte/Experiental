@@ -18,6 +18,8 @@
 #include "system/settingsManager.h"
 #include <fstream>
 
+#include "system/videoUpdate.h"
+
 CSettingsManager::CSettingsManager()
 {
     settingMap.clear();
@@ -55,12 +57,17 @@ void CSettingsManager::parseFile(std::string filename)
 
 void CSettingsManager::createStandardSettings()
 {
-    //empty for the time being
+    std::string scrX = "screenX";
+//    SETTING(int, CVideoUpdate::screenWidth, CVideoUpdate::scrWidth, scrX);
+//    SETTING(int, CVideoUpdate::screenHeight, CVideoUpdate::scrHeight, "screenY");
+//    SETTING(int, CVideoUpdate::screenBPP, CVideoUpdate::scrBPP, "screenBPP");
 }
 
 void CSettingsManager::destroyStandardSettings()
 {
-    //also empty
+//    CVideoUpdate::screenWidth = 0;
+//    CVideoUpdate::screenHeight = 0;
+//    CVideoUpdate::screenBPP = 0;
 }
 
 void CSettingsManager::setVariable(std::string &name, std::string &value, int bias)
@@ -73,7 +80,7 @@ void CSettingsManager::setVariable(std::string &name, std::string &value, int bi
         valueList.clear();
 
         //check for semicolon-seperated values
-        if(value.find(';'))
+        if(value.compare(";"))
         {
             //split the string into semicolon-seperated chunks
             int first = 0, last;
@@ -89,7 +96,7 @@ void CSettingsManager::setVariable(std::string &name, std::string &value, int bi
             valueList.push_back(value);
         }
 
-        for(std::list<std::string>::iterator it = valueList.begin(); it != valueList.end(); it++)
+        for(std::list<std::string>::iterator it = valueList.begin(); it != valueList.end(); ++it)
         {
             if(bias > 0)
             {

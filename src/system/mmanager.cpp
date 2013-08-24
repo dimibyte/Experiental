@@ -18,16 +18,38 @@
 ///A nice little base class to automatically memory-manage our objects.
 
 #include "system/mmanager.h"
+#include "system/CLog.h"
+#include <string.h>         //memcpy
+#include <algorithm>        //std::find
 
 //a 'static initialiser' is needed in one of the source files
 //to give the std::list a definetive presence
-std::list<IMMObject *> IMMObject::liveObjects;
-std::list<IMMObject *> IMMObject::deadObjects;
+IMMObject *IMMObject::liveObjects = 0;
+IMMObject *IMMObject::deadObjects = 0;
+std::list<IMMObject *> IMMObject::heapObjects;
 
 IMMObject::IMMObject()
 {
-    liveObjects.push_back(this);
+    nextObject = prevObject = 0;
     refCount = 0;
+    std::list<IMMObject*>::iterator it = std::find(heapObjects.begin(), heapObjects.end(), this);
+    if(it == heapObjects.end())
+    {
+        bIsStackAllocated = true;
+    }
+    else
+    {
+        bIsStackAllocated = false;
+        heapObjects.erase(it);
+    }
+    if(!bIsStackAllocated)
+    {
+        //start on the deadObjects list
+        nextObject = deadObjects;
+        if(deadObjects)
+            deadObjects->prevObject = this;
+        deadObjects = this;
+    }
 }
 
 IMMObject::~IMMObject()
@@ -39,38 +61,82 @@ IMMObject::~IMMObject()
 void IMMObject::addRef()
 {
     ++refCount;
+    if(!bIsStackAllocated && (refCount == 1))
+    {
+        //move to the liveObjects list
+        if(prevObject)
+            prevObject->nextObject = nextObject;
+        if(nextObject)
+            nextObject->prevObject = prevObject;
+        if(deadObjects == this)
+            deadObjects = nextObject;
+        prevObject = 0;
+        nextObject = liveObjects;
+        if(liveObjects)
+            liveObjects->prevObject = this;
+        liveObjects = this;
+    }
 }
 
 void IMMObject::release()
 {
     --refCount;
-    if(refCount <= 0)
+    if(!bIsStackAllocated && (refCount <= 1))
     {
-        liveObjects.remove(this);       //TODO: Object should store some kind of iterator allowing to remove it directly.
-        deadObjects.push_back(this);
+        //remove self from liveObjects list
+        if(prevObject)
+            prevObject->nextObject = nextObject;
+        if(nextObject)
+            nextObject->prevObject = prevObject;
+        if(liveObjects == this)
+            liveObjects = nextObject;
+        prevObject = 0;
+        //add self to dead list
+        nextObject = deadObjects;
+        if(deadObjects)
+            deadObjects->prevObject = this;
+        deadObjects = this;
     }
 }
 
 void IMMObject::collectGarbage()
 {
-    for(std::list<IMMObject *>::iterator it = deadObjects.begin(); it != liveObjects.end(); it++)
+    while(deadObjects)
     {
-        delete (*it);
+        IMMObject *nObj = deadObjects->nextObject;
+        delete deadObjects;
+        deadObjects = nObj;
     }
-    deadObjects.clear();
 }
 
 void IMMObject::collectRemainingObjects(bool bEmitWarnings)
 {
     collectGarbage();
-    for(std::list<IMMObject *>::iterator it = liveObjects.begin(); it !=liveObjects.end(); it++)
+    while(liveObjects)
     {
-        IMMObject *o = (*it);
+        IMMObject *o = liveObjects->nextObject;
         if(bEmitWarnings)
         {
-            //log some kind of error message here
+            //copy the object to a temporary buffer so that our '10 bytes' message doesn't
+            //cause an access violation
+            char szBuf[11] = {0};
+            memcpy(szBuf, liveObjects, std::min(liveObjects->size(), (long unsigned int)10));
+            CLog::get().write(LOG_APP, IDS_UNRELEASED_OBJECT, liveObjects, liveObjects->size(), szBuf);
         }
-        delete o;
+        delete liveObjects;
+        liveObjects = o;
     }
-    liveObjects.clear();
+}
+
+void* IMMObject::operator new(size_t objsize)
+{
+    void *newObj = malloc(objsize);
+    heapObjects.push_back((IMMObject*)newObj);
+    return newObj;
+}
+
+void IMMObject::operator delete(void* obj)
+{
+    if(!((IMMObject*)obj)->bIsStackAllocated)
+        free(obj);
 }
