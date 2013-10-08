@@ -31,9 +31,8 @@
 //#include "resource.h"
 #endif
 
-#include <system/SDL.h>
-
 //foundation layer headers
+#include "system/SDL.h"
 #include "system/mmanager.h"
 #include "system/CLog.h"
 #include "system/functor.h"
@@ -43,6 +42,7 @@
 #include "system/kernel.h"
 #include "system/ringBuffer.h"
 #include "system/settingsManager.h"
+#include "system/serializer.h"
 
 //task pool
 #include "system/globalTimer.h"

@@ -84,6 +84,8 @@
 		<Unit filename="game.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="game/example.cpp" />
+		<Unit filename="game/example.h" />
 		<Unit filename="globals.cpp" />
 		<Unit filename="globals.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -186,6 +188,8 @@
 			<Option target="WDebug64" />
 			<Option target="WRelease64" />
 		</Unit>
+		<Unit filename="system/serializer.cpp" />
+		<Unit filename="system/serializer.h" />
 		<Unit filename="system/settingsManager.cpp" />
 		<Unit filename="system/settingsManager.h">
 			<Option target="LRelease64" />

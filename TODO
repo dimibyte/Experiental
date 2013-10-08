@@ -2,6 +2,8 @@
 
 * --- Engine --- *
 
+NONE It seems that migrating to SDL 2.0 will be needed (benefits, moving forward with time)
+
 NONE sdl-net for dividing into client/server
 
 WIP CEGUI for menus, interface
