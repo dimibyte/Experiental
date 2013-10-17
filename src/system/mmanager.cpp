@@ -27,6 +27,7 @@
 IMMObject *IMMObject::liveObjects = 0;
 IMMObject *IMMObject::deadObjects = 0;
 std::list<IMMObject *> IMMObject::heapObjects;
+unsigned long IMMObject::heapUsage=0;
 
 IMMObject::IMMObject()
 {
@@ -81,7 +82,7 @@ void IMMObject::addRef()
 void IMMObject::release()
 {
     --refCount;
-    if(!bIsStackAllocated && (refCount <= 1))
+    if(!bIsStackAllocated && (refCount <= 0))
     {
         //remove self from liveObjects list
         if(prevObject)
@@ -120,6 +121,7 @@ void IMMObject::collectRemainingObjects(bool bEmitWarnings)
             //copy the object to a temporary buffer so that our '10 bytes' message doesn't
             //cause an access violation
             char szBuf[11] = {0};
+            memset(szBuf, 0, 11);
             memcpy(szBuf, liveObjects, std::min(liveObjects->size(), (long unsigned int)10));
             CLog::get().write(LOG_APP, IDS_UNRELEASED_OBJECT, liveObjects, liveObjects->size(), szBuf);
         }
@@ -131,12 +133,17 @@ void IMMObject::collectRemainingObjects(bool bEmitWarnings)
 void* IMMObject::operator new(size_t objsize)
 {
     void *newObj = malloc(objsize);
+    heapUsage+=objsize;
     heapObjects.push_back((IMMObject*)newObj);
+    ((IMMObject*)newObj)->heapAllocSize=objsize;
     return newObj;
 }
 
 void IMMObject::operator delete(void* obj)
 {
     if(!((IMMObject*)obj)->bIsStackAllocated)
+    {
+        heapUsage-=((IMMObject*)obj)->heapAllocSize;
         free(obj);
+    }
 }

@@ -49,7 +49,7 @@ void CInputTask::update()
     oldButtons = buttons;
     buttons = SDL_GetRelativeMouseState(&dX, &dY);
 
-    memcpy((unsigned char*)(*oldKey), keys, sizeof(unsigned char) *keyCount);
+    memcpy((unsigned char*)(&oldKeys), &keys, sizeof(unsigned char) *keyCount);
     keys = SDL_GetKeyState(&keyCount);
 }
 

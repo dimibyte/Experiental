@@ -31,7 +31,7 @@ public:
     CSettingsManager();
     virtual ~CSettingsManager();
 
-    void registerVariable(std::string &name, CMMPointer<BaseDator> &var);
+    void registerVariable(std::string name, CMMPointer<BaseDator> var);
     void setVariable(std::string &name, std::string &value, int bias = 0);
 
     void createStandardSettings();

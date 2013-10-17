@@ -42,7 +42,7 @@ public:
 class CProfileSample
 {
 public:
-    CProfileSample(std::string sampleName);
+    CProfileSample(std::string samplename);
     ~CProfileSample();
 
     static void output();
@@ -95,10 +95,17 @@ protected:
     static float rootBegin, rootEnd;
 };
 
-#ifdef DEBUG
-#define PROFILE(name) CProfileSample _profile_sample(name);
-#else
-#define PROFILE(name)
-#endif
+//#ifdef DEBUG
+//#define PROFILE(name) CProfileSample _profile_sample(name);
+//#else
+//#define PROFILE(name)
+//#endif
+
+inline
+void PROFILE(std::string Name)
+{
+    CProfileSample _profile_sample(Name);
+}
+
 
 #endif      //_PROFILER_H_

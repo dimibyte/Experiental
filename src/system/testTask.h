@@ -6,6 +6,8 @@
 class COurTestTask : public ITask
 {
 public:
+    COurTestTask();
+
     bool start();
     void update();
     void stop();

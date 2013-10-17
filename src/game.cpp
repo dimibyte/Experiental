@@ -22,9 +22,11 @@
 #include "graphics/cegui.h"
 #include "system/testTask.h"
 
+#include "game/tasks/logo.h"
 
 
-void Game::Start()
+
+/*void Game::Start()
 {
     if(_gameState != uninitialized)
         return;
@@ -35,19 +37,19 @@ void Game::Start()
     CEGUI::WindowManager& winManager = GUI::init_CEGUI(screen) ;
     //CEGUI::OpenGLRenderer& myRenderer = CEGUI::OpenGLRenderer::create();
     GUI::create_gui( winManager ) ;
-    _gameState = playing;
+    _gameState = playing;*/
 
     /***    Loop    ***/
-    while (!isExiting())
-    {
-        GameLoop();
-    }
+ //   while (!isExiting())
+ //   {
+ //       GameLoop();
+ //   }
 
     /***    Exiting    ***/
-    cleanupSDL();
-}
+//    cleanupSDL();
+//}
 
-bool Game::isExiting()
+/*bool Game::isExiting()
 {
     if(_gameState == exiting)
         return true;
@@ -66,9 +68,9 @@ void Game::GameLoop()
         case showingMenu: { }
 
         case playing:
-        {
+        {*/
             /***    Events     ***/
-            while(SDL_PollEvent(&event))
+            /*while(SDL_PollEvent(&event))
             {
                 //CEGUI
                 GUI::inject_time_pulse(last_time_pulse);
@@ -90,26 +92,26 @@ void Game::GameLoop()
                 }
 
                 if(must_quit) { _gameState = exiting; }
-            }
+            }*/
             /***    Logic    ***/
 
             /***    Render    ***/
-            glClear( GL_COLOR_BUFFER_BIT ) ;
-            GUI::render_gui();
+            //glClear( GL_COLOR_BUFFER_BIT ) ;
+         //   GUI::render_gui();
 
             /***    Debug    ***/
 
             /// Screen update
-            SDL_GL_SwapBuffers();
-            SDL_Delay(1000/SCREEN_FPSL);
-            break;
-        }
-        default:
-            break;
-    }
-}
+        //    SDL_GL_SwapBuffers();
+       //     SDL_Delay(1000/SCREEN_FPSL);
+       //     break;
+      //  }
+      //  default:
+       //     break;
+   // }
+//}*/
 
-Game::GameState Game::_gameState = uninitialized;
+//Game::GameState Game::_gameState = uninitialized;
 
 void CApplication::run(int argc, char** argv)
 {
@@ -163,9 +165,13 @@ void CApplication::run(int argc, char** argv)
 
     //game-specific tasks:
 
-    CMMPointer<COurTestTask> tt = new COurTestTask();
-    tt->priority = 100;
-    CKernel::getSingleton().addTask(CMMPointer<ITask>(tt));
+    //CMMPointer<COurTestTask> tt = new COurTestTask();
+    //tt->priority = 100;
+    //CKernel::getSingleton().addTask(CMMPointer<ITask>(tt));
+
+    CMMPointer<CLogoTask> lt = new CLogoTask();
+    lt->priority = 90;
+    CKernel::getSingleton().addTask(CMMPointer<ITask>(lt));
 
     //main game loop
     CKernel::getSingleton().execute();

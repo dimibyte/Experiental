@@ -23,19 +23,10 @@
 #include "system/mmanager.h"
 #include "system/singleton.h"
 
-class ITask : public IMMObject
-{
-public:
-    ITask();
-    virtual bool start() = 0;
-    virtual void onSuspend() {}
-    virtual void update() = 0;
-    virtual void onResume() {}
-    virtual void stop() = 0;
+class CClient;
+class CServer;
 
-    bool canKill;
-    long priority;
-};
+class ITask;
 
 class CKernel : public Singleton<CKernel>
 {
@@ -55,5 +46,21 @@ protected:
     std::list< CMMPointer<ITask> > taskList;
     std::list< CMMPointer<ITask> > pausedTaskList;
 };
+
+class ITask : virtual public IMMObject
+{
+public:
+    ITask();
+    virtual bool start() = 0;
+    virtual void onSuspend() {}
+    virtual void update() = 0;
+    virtual void onResume() {}
+    virtual void stop() = 0;
+
+    bool canKill;
+    long priority;
+};
+
+
 
 #endif      //_SYSTEM_KERNEL_H_

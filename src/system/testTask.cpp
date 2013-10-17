@@ -2,6 +2,10 @@
 #include "system/inputTask.h"
 #include <GL/gl.h>
 
+COurTestTask::COurTestTask()
+{
+}
+
 bool COurTestTask::start()
 {
     return true;

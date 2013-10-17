@@ -66,7 +66,7 @@ inline float CProfileSample::getTime()
     return ((float)SDL_GetTicks())/1000.0f;
 }
 
-CProfileSample::CProfileSample(std::string sampleName)
+CProfileSample::CProfileSample(std::string samplename)
 {
     if(!bProfilerIsRunning)
         return;
@@ -87,7 +87,7 @@ CProfileSample::CProfileSample(std::string sampleName)
         }
         else
         {
-            if(samples[i].name == sampleName)
+            if(samples[i].name == samplename)
             {
                 //this is the sample we want
                 //check that it's not already open
@@ -119,7 +119,7 @@ CProfileSample::CProfileSample(std::string sampleName)
     //use the storeIndex value to store the new sample
     assert(storeIndex >= 0 && "Profiler has run out of sample slots!");
     samples[storeIndex].bIsValid = true;
-    samples[storeIndex].name = sampleName;
+    samples[storeIndex].name = samplename;
     iSampleIndex = storeIndex;
     iParentIndex = lastOpenedSample;
     lastOpenedSample = storeIndex;

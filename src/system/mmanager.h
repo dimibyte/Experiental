@@ -39,6 +39,8 @@ private:
     long refCount;
     bool bIsStackAllocated;
     static std::list<IMMObject*> heapObjects;
+    static unsigned long heapUsage;
+    unsigned long heapAllocSize;
 protected:
     IMMObject();
     virtual ~IMMObject();

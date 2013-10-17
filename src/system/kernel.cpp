@@ -42,10 +42,10 @@ CKernel::~CKernel()
 
 int CKernel::execute()
 {
-    while(taskList.empty())
+    while(!taskList.empty())
     {
         {
-            PROFILE("Kernel task loop");
+//            PROFILE("Kernel task loop");
 
             std::list< CMMPointer<ITask> >::iterator it, thisIt;
             for(it = taskList.begin(); it != taskList.end(); )
@@ -69,9 +69,9 @@ int CKernel::execute()
             }
             IMMObject::collectGarbage();
         }
-#ifdef DEBUG
-        CProfileSample::output();
-#endif
+//#ifdef DEBUG
+ //       CProfileSample::output();
+//#endif
     }
     return 0;
 }

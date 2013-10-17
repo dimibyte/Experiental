@@ -59,23 +59,23 @@ void CLog::write(int target, const char *msg, ...)
     if(target&LOG_APP)
     {
         appLog<<szBuf<<"\n";
-#ifdef DEBUG
+//#ifdef DEBUG
         appLog.flush();
-#endif
+//#endif
     }
     if(target&LOG_CLIENT)
     {
         clientLog<<szBuf<<"\n";
-#ifdef DEBUG
+//#ifdef DEBUG
         clientLog.flush();
-#endif
+//#endif
     }
     if(target&LOG_SERVER)
     {
         serverLog<<szBuf<<"\n";
-#ifdef DEBUG
+//#ifdef DEBUG
         serverLog.flush();
-#endif
+//#endif
     }
     if(target&LOG_USER)
     {

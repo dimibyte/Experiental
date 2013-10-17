@@ -40,6 +40,8 @@ public:
     CMMPointer<CGlobalTimer> globalTimer;
     CMMPointer<CInputTask> inputTask;
     CMMPointer<CSoundTask> soundTask;
+    CMMPointer<COurTestTask> tt;
+    CMMPointer<CLogoTask> lt;
 
     void run(int argc, char** argv);
 };

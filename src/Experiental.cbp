@@ -16,10 +16,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-DDEBUG" />
 				</Compiler>
-				<Environment>
-					<Variable name="DEBUG" value="TRUE" />
-				</Environment>
 			</Target>
 			<Target title="LRelease64">
 				<Option platforms="Unix;" />
@@ -75,147 +73,77 @@
 			<Add option="-lCEGUIBase -lCEGUIOpenGLRenderer" />
 			<Add directory="./" />
 		</Linker>
-		<Unit filename="engine.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="engine.h" />
 		<Unit filename="game.cpp" />
 		<Unit filename="game.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="LDebug64" />
 		</Unit>
 		<Unit filename="game/example.cpp" />
 		<Unit filename="game/example.h" />
+		<Unit filename="game/tasks/logo.cpp" />
+		<Unit filename="game/tasks/logo.h" />
 		<Unit filename="globals.cpp" />
 		<Unit filename="globals.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="LDebug64" />
 		</Unit>
-		<Unit filename="graphics/3dmath.cpp">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="graphics/3dmath.cpp" />
 		<Unit filename="graphics/3dmath.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="LDebug64" />
 		</Unit>
 		<Unit filename="graphics/cegui.cpp" />
 		<Unit filename="graphics/cegui.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="LDebug64" />
 		</Unit>
-		<Unit filename="graphics/devIL.cpp">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="graphics/devIL.cpp" />
 		<Unit filename="graphics/devIL.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="LDebug64" />
 		</Unit>
 		<Unit filename="graphics/openGL.cpp" />
 		<Unit filename="graphics/openGL.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="LDebug64" />
 		</Unit>
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="LDebug64" />
 		</Unit>
-		<Unit filename="sound/almix.cpp">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
-		<Unit filename="sound/almix.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
-		<Unit filename="sound/fmod.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
-		<Unit filename="sound/oalwrapper.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="sound/almix.cpp" />
+		<Unit filename="sound/almix.h" />
+		<Unit filename="sound/fmod.h" />
+		<Unit filename="sound/oalwrapper.h" />
 		<Unit filename="system/CLog.cpp" />
-		<Unit filename="system/CLog.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="system/CLog.h" />
 		<Unit filename="system/SDL.cpp" />
 		<Unit filename="system/SDL.h">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="LDebug64" />
 		</Unit>
 		<Unit filename="system/dator.cpp" />
-		<Unit filename="system/dator.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="system/dator.h" />
 		<Unit filename="system/functor.cpp" />
-		<Unit filename="system/functor.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="system/functor.h" />
 		<Unit filename="system/globalTimer.cpp" />
 		<Unit filename="system/globalTimer.h" />
 		<Unit filename="system/inputTask.cpp" />
 		<Unit filename="system/inputTask.h" />
 		<Unit filename="system/kernel.cpp" />
-		<Unit filename="system/kernel.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="system/kernel.h" />
 		<Unit filename="system/mmanager.cpp" />
-		<Unit filename="system/mmanager.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="system/mmanager.h" />
 		<Unit filename="system/profiler.cpp" />
-		<Unit filename="system/profiler.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="system/profiler.h" />
 		<Unit filename="system/ringBuffer.cpp" />
-		<Unit filename="system/ringBuffer.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="system/ringBuffer.h" />
 		<Unit filename="system/serializer.cpp" />
 		<Unit filename="system/serializer.h" />
 		<Unit filename="system/settingsManager.cpp" />
-		<Unit filename="system/settingsManager.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="system/settingsManager.h" />
 		<Unit filename="system/singleton.cpp" />
-		<Unit filename="system/singleton.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="system/singleton.h" />
 		<Unit filename="system/soundTask.cpp" />
-		<Unit filename="system/soundTask.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="system/soundTask.h" />
 		<Unit filename="system/testTask.cpp" />
 		<Unit filename="system/testTask.h" />
 		<Unit filename="system/videoUpdate.cpp" />
-		<Unit filename="system/videoUpdate.h">
-			<Option target="LRelease64" />
-			<Option target="WDebug64" />
-			<Option target="WRelease64" />
-		</Unit>
+		<Unit filename="system/videoUpdate.h" />
 		<Extensions>
 			<envvars />
 			<code_completion />

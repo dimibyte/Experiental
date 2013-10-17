@@ -31,7 +31,7 @@ CSettingsManager::~CSettingsManager()
     destroyStandardSettings();
 }
 
-void CSettingsManager::registerVariable(std::string &name, CMMPointer<BaseDator> &var)
+void CSettingsManager::registerVariable(std::string name, CMMPointer<BaseDator> var)
 {
     settingMap[name] = var;
 }
@@ -57,17 +57,17 @@ void CSettingsManager::parseFile(std::string filename)
 
 void CSettingsManager::createStandardSettings()
 {
-    std::string scrX = "screenX";
-//    SETTING(int, CVideoUpdate::screenWidth, CVideoUpdate::scrWidth, scrX);
-//    SETTING(int, CVideoUpdate::screenHeight, CVideoUpdate::scrHeight, "screenY");
-//    SETTING(int, CVideoUpdate::screenBPP, CVideoUpdate::scrBPP, "screenBPP");
+    //std::string scrX = "screenX";
+    SETTING(int, CVideoUpdate::screenWidth, CVideoUpdate::scrWidth, "screenX");
+    SETTING(int, CVideoUpdate::screenHeight, CVideoUpdate::scrHeight, "screenY");
+    SETTING(int, CVideoUpdate::screenBPP, CVideoUpdate::scrBPP, "screenBPP");
 }
 
 void CSettingsManager::destroyStandardSettings()
 {
-//    CVideoUpdate::screenWidth = 0;
-//    CVideoUpdate::screenHeight = 0;
-//    CVideoUpdate::screenBPP = 0;
+    CVideoUpdate::screenWidth = 0;
+    CVideoUpdate::screenHeight = 0;
+    CVideoUpdate::screenBPP = 0;
 }
 
 void CSettingsManager::setVariable(std::string &name, std::string &value, int bias)

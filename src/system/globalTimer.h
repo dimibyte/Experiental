@@ -6,7 +6,9 @@
 class CGlobalTimer : public ITask
 {
 public:
-    AUTO_SIZE;
+    CGlobalTimer();
+	virtual ~CGlobalTimer();
+	AUTO_SIZE;
 
     static float dT;
     static unsigned long lastFrameIndex;
@@ -15,6 +17,8 @@ public:
     bool start();
     void update();
     void stop();
+
+    void reset();
 };
 
 #endif      //_SYSTEM_GLOBALTIMER_H_

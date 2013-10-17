@@ -4,6 +4,9 @@
 #include <SDL/SDL_opengl.h>
 #include "system/CLog.h"
 
+CMMPointer<Dator<int> > CVideoUpdate::screenWidth = 0;
+CMMPointer<Dator<int> > CVideoUpdate::screenHeight = 0;
+CMMPointer<Dator<int> > CVideoUpdate::screenBPP = 0;
 int CVideoUpdate::scrWidth = 1280;
 int CVideoUpdate::scrHeight = 720;
 int CVideoUpdate::scrBPP = 32;
@@ -32,7 +35,7 @@ bool CVideoUpdate::start()
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-    int flags = SDL_OPENGL | SDL_ANYFORMAT | SDL_FULLSCREEN;
+    int flags = SDL_OPENGL | SDL_ANYFORMAT | SDL_NOFRAME;
 
     if(!SDL_SetVideoMode(scrWidth, scrHeight, scrBPP, flags))
     {
