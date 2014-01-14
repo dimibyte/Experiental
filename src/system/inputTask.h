@@ -19,7 +19,7 @@
 #define _SYSTEM_INPUTTASK_H_
 
 #include "system/kernel.h"
-#include <SDL/SDL.h>
+#include "system/SDL.h"
 
 class CInputTask : public ITask
 {

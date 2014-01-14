@@ -2,30 +2,27 @@
 
 * --- Engine --- *
 
-NONE It seems that migrating to SDL 2.0 will be needed (benefits, moving forward with time)
-
-NONE sdl-net for dividing into client/server
+NONE Appstate task/Appstate factory
 
 WIP CEGUI for menus, interface
 
-NONE Logging system
+NONE Clean up old architecture ("Game" class) <-- maybe sth will be used in Gamestate Factory
 
 NONE tinyXML as main XML parser     <-- do we really need this?
 
-NONE Player class
-
 NONE Planet generator
+
+NONE Player class
 
 NONE Bullet physics     <-- engine
 
 NONE Script engine  <-- more ideas
 
-NONE Audio (FLAC, sdl-sound?)   <-- this should be done after actual gameplay realization
-
+NONE Audio (FLAC, OpenAL+SDL2-Mixer)   <-- this should be done after actual gameplay realization
 
 * --- Game --- *
 
-NONE Menu and interface is on surface, using RenderToTexture
+NONE Menu and interface is on surface, using RenderToTexture method
 
 
 

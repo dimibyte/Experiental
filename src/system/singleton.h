@@ -27,16 +27,20 @@ class Singleton
 public:
     Singleton()
     {
-        assert(!ms_singleton);
+        //assert(!ms_singleton);
         //use a cunning trick to get the singleton pointing to the start of
         //the whole, rather than the start of the Singleton part of the object
-        int offset = *((int*)(T*)1) - *((int*)(Singleton <T>*)(T*)1);
-        ms_singleton = (T*)((int*)this + offset);
+        //int offset = *((int*)(T*)1) - *((int*)(Singleton <T>*)(T*)1);
+        //ms_singleton = (T*)((int*)this + offset);
     }
     ~Singleton()
     {
         assert(ms_singleton);
         ms_singleton = 0;
+    }
+    static void setSingleton(T* val)
+    {
+        ms_singleton = val;
     }
     static T& getSingleton()
     {

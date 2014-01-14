@@ -18,6 +18,12 @@
 #ifndef _GAME_H_
 #define _GAME_H_
 
+#ifdef _WIN64
+#ifndef POINTER_64
+#define POINTER_64 __ptr64
+#endif
+#endif  //_WIN64
+
 #include "engine.h"
 
 class Game

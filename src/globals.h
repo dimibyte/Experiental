@@ -18,7 +18,11 @@
 #ifndef _GLOBALS_H_
 #define _GLOBALS_H_
 
-#include <SDL/SDL.h>
+#ifdef _WIN64
+#ifndef POINTER_64
+#define POINTER_64 __ptr64
+#endif
+#endif  //_WIN64
 
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;

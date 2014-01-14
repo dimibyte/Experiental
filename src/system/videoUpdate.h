@@ -3,9 +3,12 @@
 
 #include "system/kernel.h"
 #include "system/dator.h"
+#include "system/SDL.h"
 
 class CVideoUpdate : public ITask
 {
+    SDL_Window *screen;
+	SDL_GLContext glcontext;
 public:
     CVideoUpdate();
     virtual ~CVideoUpdate();

@@ -1,4 +1,9 @@
 
+#ifdef _WIN64
+#ifndef POINTER_64
+#define POINTER_64 __ptr64
+#endif
+#endif  //_WIN64
 
 #include "engine.h"
 #include "game/example.h"

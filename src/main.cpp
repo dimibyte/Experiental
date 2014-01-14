@@ -20,15 +20,37 @@
 #include "system/SDL.h"
 #include "graphics/openGL.h"
 #include "game.h"
-#include "sound/almix.h"
 
 #include <iostream>
+#include <cstdio>
+
+#if defined _WIN32 || defined _WIN64
+#define NOMINMAX
+#include <windows.h>
+#endif
+
+void print_SDL_version(char* preamble, SDL_version* v) {
+   printf("%s %u.%u.%u\n", preamble, v->major, v->minor, v->patch);
+}
+
+void print_SDL_versions() {
+    SDL_version ver;
+
+    // Prints the compile time version
+    SDL_VERSION(&ver);
+    print_SDL_version((char*)"SDL compile-time version", &ver);
+
+    // Prints the run-time version
+    SDL_GetVersion(&ver);
+    print_SDL_version((char*)"SDL runtime version", &ver);
+}
 
 int main(int argc, char** argv)
 {
     //Game::Start();
+    print_SDL_versions();
 
-    new CApplication();
+    CApplication::setSingleton(new CApplication());
     CApplication::getSingleton().run(argc, argv);
     delete CApplication::getSingletonPtr();
 

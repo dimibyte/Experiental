@@ -18,20 +18,22 @@
 #ifndef _SYSTEM_SDL_H_
 #define _SYSTEM_SDL_H_
 
-#ifdef _WIN32
+#include "globals.h"
+
+#if defined _WIN32 || defined _WIN64
+#ifdef _MSC_VER
 #pragma comment (lib, "SDLmain.lib")
 #pragma comment (lib, "SDL.lib")
 #pragma comment (lib, "SDL_image.lib")
 #pragma comment (lib, "SDL_ttf.lib")
-#endif      // _WIN32
+#endif      // _MSC_VER
+#endif      // _WIN32 || _WIN64
 
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
-#include <SDL/SDL_net.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
+#include <SDL2/SDL_net.h>
 
-#include "globals.h"
-
-SDL_Surface & initSDL(int screenWidth, int screenHeight, int screenBPP);
+//SDL_Windows& initSDL(int screenWidth, int screenHeight, int screenBPP);
 void cleanupSDL();
 SDL_Surface& returnScreen();
 

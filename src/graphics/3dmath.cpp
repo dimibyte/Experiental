@@ -16,7 +16,7 @@
  */
 
 #include "graphics/3dmath.h"
-#include <math.h>
+#include <math.h> // isnan()
 
 ///Cross
 //Возвращает вектор перепендикулярный двум векторам

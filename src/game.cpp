@@ -19,7 +19,7 @@
 #include "globals.h"
 #include "system/SDL.h"
 #include "graphics/openGL.h"
-#include "graphics/cegui.h"
+//#include "graphics/cegui.h"
 #include "system/testTask.h"
 
 #include "game/tasks/logo.h"
@@ -120,8 +120,8 @@ void CApplication::run(int argc, char** argv)
         return;
 
     //create a couple of singletons
-    new CSettingsManager();
-    new CKernel();
+    CSettingsManager::setSingleton(new CSettingsManager());
+    CKernel::setSingleton(new CKernel());
 
     //parse the 'settings.eng' file
     CSettingsManager::getSingleton().parseFile("settings.eng");
@@ -135,6 +135,8 @@ void CApplication::run(int argc, char** argv)
     //set up the profiler with an output handler
     CProfileLogHandler profileLogHandler;
     CProfileSample::outputHandler = &profileLogHandler;
+
+    CLog::get().write(LOG_USER, "There's no game. Just some picture... =)");
 
     //It's probably a good idea to have all the system tasks together.
     //The priority system means the tasks can officially be created in

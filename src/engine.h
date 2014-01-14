@@ -26,13 +26,14 @@
 #pragma warning ( disable : 4786 )
 #endif // _MSC_VER > 1000
 
-#ifdef WIN32
+#if defined _WIN32 || defined _WIN64
 #include <windows.h>
 //#include "resource.h"
 #endif
 
 //foundation layer headers
 #include "system/SDL.h"
+
 #include "system/mmanager.h"
 #include "system/CLog.h"
 #include "system/functor.h"

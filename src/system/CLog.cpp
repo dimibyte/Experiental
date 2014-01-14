@@ -18,6 +18,7 @@
 ///Logging system
 
 #include "system/CLog.h"
+#include "system/SDL.h"
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -79,7 +80,7 @@ void CLog::write(int target, const char *msg, ...)
     }
     if(target&LOG_USER)
     {
-#if defined _WIN32 || defined _WIN64
+/*D #if defined _WIN32 || defined _WIN64
 //        MessageBox(NULL, szBuf, "Message", MB_OK);        //can't use it, while there's no #include <windows.h>
 #elif defined __linux__
 //TODO: just need to make some X11 window with message, or write to console
@@ -87,7 +88,12 @@ void CLog::write(int target, const char *msg, ...)
 #error User-level logging is not yet implemented for this Macintosh platform.
 #else
 #error User-level logging is not yet implemented for this platform.
-#endif
+#endif */
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                         "Message",
+                         szBuf,
+                         NULL);
+
     }
 }
 
@@ -106,8 +112,8 @@ bool CLog::loadStrings()
     for(unsigned long i = 0; i < MAX_LOG_STRINGS; i++)
     {
         char szBuf[1024];
-        if(!loadString(GetModuleHandle("engine"), i, szBuf, 1024))
-            break;  //returning 0 means no more strings
+//W?        if(!loadString(GetModuleHandle("engine"), i, szBuf, 1024))
+//W?            break;  //returning 0 means no more strings
         logStrings[i] = szBuf;
     }
     return true;

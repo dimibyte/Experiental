@@ -113,7 +113,7 @@ void IMMObject::collectGarbage()
 void IMMObject::collectRemainingObjects(bool bEmitWarnings)
 {
     collectGarbage();
-    while(liveObjects)
+/*    while(liveObjects)
     {
         IMMObject *o = liveObjects->nextObject;
         if(bEmitWarnings)
@@ -127,7 +127,7 @@ void IMMObject::collectRemainingObjects(bool bEmitWarnings)
         }
         delete liveObjects;
         liveObjects = o;
-    }
+    }*/     //destruction after delete situation
 }
 
 void* IMMObject::operator new(size_t objsize)

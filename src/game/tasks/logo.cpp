@@ -6,41 +6,42 @@
 #include <GL/glu.h>
 #include "graphics/devIL.h"
 #include "system/videoUpdate.h"
+#include "system/CLog.h"
 
 TextureImage textures[2];
 CTexture *Texture;
 
 ///OrthoMode
-//Perekljuchenie v 2D rezhim
+//Переключение в 2D режим
 void OrthoMode(int left, int top, int right, int bottom) {
-    //Eta funkcija prinimaet koordinati kvadrata dlja nashego 2D ekrana.
+    //Эта функция принимает координаты квадрата для нашего 2D экрана.
 
-    //Prekeljuchaemsja na matricu projekcii, chtobi perejti v rezhim ortho, ne perspective
+    //Переключаемся на матрицу проекции, чтобы перейти в режим ortho, не perspective
     glMatrixMode(GL_PROJECTION);
-    //Vhodim v novuju matricu, chtobi potom vijti iz nejo, dlja vozvrashenie v rezhim perspektivy
+    //Входим в новую матрицу, чтобы потом выйти из неё, для возвращения в режим перспективы
     glPushMatrix();
-    //Sbrosim nashu tekushuju matricu
+    //Сбросим нашу текущую матрицу
     glLoadIdentity();
-    //Peredadajom OpenGL ekrannie koordinaty. Levo, pravo, niz, verh.
-    //Poslednie 2  parametra - blizhnjaja i daljnjaja ploskosti.
+    //Передаём OpenGL экранные координаты. Лево, право, низ, верх.
+    //Последние 2 параметра - ближняя и дальняя плоскости.
     glOrtho(left, right, bottom, top, 0, 1);
-    //Perkljuchaemsja v modelview, chtobi renderitj obshjuju kartinku
+    //Переключаемся в modelview, чтобы рендерить общую картинку
     glMatrixMode(GL_MODELVIEW);
-    //Obnulim tekushuju matricu
+    //Обнулим текущую матрицу
     glLoadIdentity();
 }
 
 ///PerspectiveMode
-//Vozvrashaet nas iz 2D rezhima v 3D.
+//Возвращает нас из 2D режима в 3D.
 void PerspectiveMode() {
-    //Vhodim v rezhim matricy projekcii
+    //Входим в режим матрицы проекции
     glMatrixMode(GL_PROJECTION);
-    //Vyhodim iz poslednej matricy, vozvrashajasjv matricu s rezhimom perspektivy.
+    //Выходим из последней матрицы, возвращаясь в матрицу с режимом перспективы.
     glPopMatrix();
-    //Vozvrashaemsja v matricu modelej
+    //Возвращаемся в матрицу моделей
     glMatrixMode(GL_MODELVIEW);
 
-    //Teperj my dolzhny bytj v normaljnom 3D rezhime s perspektivoj.
+    //Теперь мы должны быть в нормальном 3D режиме с перспективой.
 }
 
 bool CLogoTask::start()
@@ -79,27 +80,30 @@ void CLogoTask::update()
 
     glColor4f(1, 1, 1, 1);
     glDisable(GL_DEPTH_TEST);
-    //bindim teksturu maski k nacshemu 2D kvadratu
+    //биндим текстуру маски к нашему 2D квадрату
     glBindTexture(GL_TEXTURE_2D, textures[0].texID);
-    //Otobrozhaem 2D kvadrat s maskoj
+    //Отображаем 2D квадрат с маской
     glBegin(GL_QUADS);
-        //Nahodjasj v 2D rezime, my ispoljzujem glVertex2f(), peredavaja ne vershiny, a ekrannye koordinaty.
+        //Находясь в 2D режиме, мы используем glVertex2f(), передавая не вершины, а экранные координаты.
 
-        //Verhnjaja levaja tochka
-        glTexCoord2f(0.0f, 1.0f);   glVertex2f(0, 0);
-        //Nizhnjaja levaja
-        glTexCoord2f(0.0f, 0.0f);   glVertex2f(0, CVideoUpdate::scrWidth);
-        //Nizhnjaja pravaja
-        glTexCoord2f(1.0f, 0.0f);   glVertex2f(CVideoUpdate::scrWidth, CVideoUpdate::scrHeight);
-        //Verhnjaja pravaja
-        glTexCoord2f(1.0f, 1.0f);   glVertex2f(CVideoUpdate::scrWidth, 0);
+        //Верхняя левая точка
+        glTexCoord2f(0.0f, 1.0f);   glVertex2f(0, 720);
+        //Нижняя левая
+        glTexCoord2f(0.0f, 0.0f);   glVertex2f(0, 0);
+        //Нижняя правая
+        glTexCoord2f(1.0f, 0.0f);   glVertex2f(1280, 0);
+        //Верхняя правая
+        glTexCoord2f(1.0f, 1.0f);   glVertex2f(1280, 720);
     glEnd();
     glEnable(GL_DEPTH_TEST);
 
     PerspectiveMode();
 
     if(CInputTask::mouseDown(SDL_BUTTON_LEFT))
+    {
         CKernel::getSingleton().killAllTasks();
+        CLog::get().write(LOG_USER, "Exiting...");
+    }
 }
 
 void CLogoTask::stop()

@@ -16,7 +16,7 @@
  */
 
 #include "system/soundTask.h"
-#include <fmodex/fmod.hpp>
+//#include <fmodex/fmod.hpp>
 
 CSoundTask::CSoundTask()
 {
@@ -28,7 +28,7 @@ CSoundTask::~CSoundTask()
 
 bool CSoundTask::start()
 {
-    //new COpenALMixer();
+    //COpenALMixer::setSingleton(new COpenALMixer());
     /*if(false == FSOUND_Init(44100, 32, 0))
         return false;*/
     return true;

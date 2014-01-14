@@ -18,8 +18,14 @@
 #ifndef _CEGUI_H_
 #define _CEGUI_H_
 
+#ifdef _WIN64
+#ifndef POINTER_64
+#define POINTER_64 __ptr64
+#endif
+#endif  //_WIN64
+
 #include <CEGUI/CEGUI.h>
-#include <SDL/SDL.h>
+#include "system/SDL.h"
 
 class GUI
 {

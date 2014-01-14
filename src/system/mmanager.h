@@ -60,27 +60,33 @@ class CMMPointer
 {
 protected:
     T* obj;
+
+    static unsigned long allRefCount;
 public:
     //Constructors - basic
     CMMPointer()
     {
+        allRefCount++;
         obj = 0;
     }
     //Constructing with a pointer
     CMMPointer(T *o)
     {
+        allRefCount++;
         obj = 0;
         *this = o;
     }
     //Constructiong with another smart pointer (copy constructor)
     CMMPointer(const CMMPointer<T> &p)
     {
+        allRefCount++;
         obj = 0;
         *this = p;
     }
     //Destructor
     ~CMMPointer()
     {
+        allRefCount--;
         if(obj)
             obj->release();
     }
@@ -142,6 +148,8 @@ public:
         return (obj == o);
     }
 };
+
+template<class T> unsigned long CMMPointer<T>::allRefCount=0;
 
 template<class T, int i>
 class CMMBlob : public IMMObject

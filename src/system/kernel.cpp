@@ -16,8 +16,7 @@
  */
 
 #include "system/kernel.h"
-#include <SDL/SDL.h>
-#include <SDL/SDL_net.h>
+#include "system/SDL.h"
 #include "system/profiler.h"
 #include <list>
 #include <algorithm>

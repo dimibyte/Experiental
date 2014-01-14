@@ -35,7 +35,7 @@ CInputTask::~CInputTask()
 
 bool CInputTask::start()
 {
-    keys = SDL_GetKeyState(&keyCount);
+    keys = (unsigned char*)SDL_GetKeyboardState(&keyCount);     //M The returned array should now be indexed by SDL_SCANCODE_* values instead of SDL_Keysym values.
     oldKeys = new CMMDynamicBlob<unsigned char>(keyCount);
     dX = dY = 0;
     SDL_PumpEvents(); SDL_PumpEvents();
@@ -49,8 +49,8 @@ void CInputTask::update()
     oldButtons = buttons;
     buttons = SDL_GetRelativeMouseState(&dX, &dY);
 
-    memcpy((unsigned char*)(&oldKeys), &keys, sizeof(unsigned char) *keyCount);
-    keys = SDL_GetKeyState(&keyCount);
+    memcpy((unsigned char*)(*oldKeys), &keys, sizeof(unsigned char) *keyCount);
+    keys = (unsigned char*)SDL_GetKeyboardState(&keyCount);
 }
 
 void CInputTask::stop()

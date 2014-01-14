@@ -16,6 +16,7 @@
  */
 
 #include "graphics/devIL.h"
+#include "system/CLog.h"
 
 ///CTexture
 
@@ -35,7 +36,9 @@ void CTexture::LoadTexture(ILenum FileType, char *filename, TextureImage *textur
     int err = ilGetError();
     if(err != IL_NO_ERROR) {
         const char* strError = iluErrorString(err);
-        printf("DevIL error: %s\nIgnoring this error\n", strError);
+        printf("DevIL error: %s %s! Ignoring...\n", strError, filename);
+        CLog::get().write(LOG_CLIENT, "DevIL error: %s %s! Ignoring...\n", strError, filename);
+        CLog::get().write(LOG_USER, "DevIL error: %s %s! Ignoring...\n", strError, filename);
     }
     //Получаем данные текстуры
     texture->width = ilGetInteger(IL_IMAGE_WIDTH);

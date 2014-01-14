@@ -18,7 +18,14 @@
 #ifndef _GRAPHICS_OPENGL_H_
 #define _GRAPHICS_OPENGL_H_
 
-#include <SDL/SDL_opengl.h>
+#ifdef _WIN64
+#ifndef POINTER_64
+#define POINTER_64 __ptr64
+#endif
+#endif  //_WIN64
+
+#include "system/SDL.h"
+#include <GL/glu.h>
 
 bool initGL(int screenWidth, int screeHeight);
 

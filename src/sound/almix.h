@@ -18,7 +18,7 @@
 #ifndef _SOUND_ALMIX_H_
 #define _SOUND_ALMIX_H_
 
-#include <SDL/SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 #include <AL/al.h>
 #include <AL/alc.h>
 
