@@ -15,7 +15,7 @@
  *  along with Experiental.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "game.h"
+#include "app.h"
 #include "globals.h"
 #include "system/SDL.h"
 #include "graphics/openGL.h"
@@ -167,9 +167,9 @@ void CApplication::run(int argc, char** argv)
 
     //game-specific tasks:
 
-    //CMMPointer<COurTestTask> tt = new COurTestTask();
-    //tt->priority = 100;
-    //CKernel::getSingleton().addTask(CMMPointer<ITask>(tt));
+    CMMPointer<COurTestTask> tt = new COurTestTask();
+    tt->priority = 100;
+    CKernel::getSingleton().addTask(CMMPointer<ITask>(tt));
 
     CMMPointer<CLogoTask> lt = new CLogoTask();
     lt->priority = 90;

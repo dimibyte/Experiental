@@ -19,16 +19,16 @@
 #include "globals.h"
 #include "system/SDL.h"
 #include "graphics/openGL.h"
-#include "game.h"
+#include "app.h"
 
 #include <iostream>
 #include <cstdio>
 
-#if defined _WIN32 || defined _WIN64
+#ifdef _WIN32
 #define NOMINMAX
 #include <windows.h>
 #endif
-
+float s = 0;
 void print_SDL_version(char* preamble, SDL_version* v) {
    printf("%s %u.%u.%u\n", preamble, v->major, v->minor, v->patch);
 }

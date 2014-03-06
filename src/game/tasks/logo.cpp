@@ -108,5 +108,4 @@ void CLogoTask::update()
 
 void CLogoTask::stop()
 {
-
 }

@@ -85,11 +85,9 @@
 		<Linker>
 			<Add directory="./" />
 		</Linker>
+		<Unit filename="app.cpp" />
+		<Unit filename="app.h" />
 		<Unit filename="engine.h" />
-		<Unit filename="game.cpp" />
-		<Unit filename="game.h">
-			<Option target="LDebug64" />
-		</Unit>
 		<Unit filename="game/example.cpp" />
 		<Unit filename="game/example.h" />
 		<Unit filename="game/tasks/logo.cpp" />
@@ -103,12 +101,11 @@
 			<Option target="LDebug64" />
 		</Unit>
 		<Unit filename="graphics/cegui.cpp">
-			<Option target="LDebug64" />
 			<Option target="LRelease64" />
 			<Option target="WRelease64" />
 		</Unit>
 		<Unit filename="graphics/cegui.h">
-			<Option target="LDebug64" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="graphics/devIL.cpp" />
 		<Unit filename="graphics/devIL.h">
@@ -122,23 +119,20 @@
 		<Unit filename="main.h">
 			<Option target="LDebug64" />
 		</Unit>
+		<Unit filename="misc.h" />
 		<Unit filename="sound/almix.cpp">
-			<Option target="LDebug64" />
 			<Option target="LRelease64" />
 			<Option target="WRelease64" />
 		</Unit>
 		<Unit filename="sound/almix.h">
-			<Option target="LDebug64" />
 			<Option target="LRelease64" />
 			<Option target="WRelease64" />
 		</Unit>
 		<Unit filename="sound/fmod.h">
-			<Option target="LDebug64" />
 			<Option target="LRelease64" />
 			<Option target="WRelease64" />
 		</Unit>
 		<Unit filename="sound/oalwrapper.h">
-			<Option target="LDebug64" />
 			<Option target="LRelease64" />
 			<Option target="WRelease64" />
 		</Unit>
@@ -156,6 +150,12 @@
 		<Unit filename="system/globalTimer.h" />
 		<Unit filename="system/inputTask.cpp" />
 		<Unit filename="system/inputTask.h" />
+		<Unit filename="system/interpolators.cpp" />
+		<Unit filename="system/interpolators.h">
+			<Option target="LRelease64" />
+			<Option target="WDebug32" />
+			<Option target="WRelease64" />
+		</Unit>
 		<Unit filename="system/kernel.cpp" />
 		<Unit filename="system/kernel.h" />
 		<Unit filename="system/mmanager.cpp" />

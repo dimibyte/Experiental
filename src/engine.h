@@ -44,6 +44,7 @@
 #include "system/ringBuffer.h"
 #include "system/settingsManager.h"
 #include "system/serializer.h"
+#include "system/interpolators.h"
 
 //task pool
 #include "system/globalTimer.h"
@@ -54,6 +55,6 @@
 #include "game/tasks/logo.h"
 
 //miscellanous
-
+#include "misc.h"
 
 #endif      //_ENGINE_H_

@@ -44,7 +44,7 @@ int CKernel::execute()
     while(!taskList.empty())
     {
         {
-//            PROFILE("Kernel task loop");
+            PROFILE("Kernel task loop");
 
             std::list< CMMPointer<ITask> >::iterator it, thisIt;
             for(it = taskList.begin(); it != taskList.end(); )
@@ -54,6 +54,18 @@ int CKernel::execute()
                 if(!t->canKill)
                     t->update();
             }
+            /*//loop again to suspend/resume tasks
+            for(it = taskList.begin(); it != taskList.end(); )
+            {
+                ITask *t = (*it);
+                thisIt = it; ++it;
+                if(t->on)
+                {
+                    t->stop();
+                    taskList.erase(thisIt);
+                    t = 0;
+                }
+            }*/
             //loop again to remove dead tasks
             for(it = taskList.begin(); it != taskList.end(); )
             {

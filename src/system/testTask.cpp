@@ -13,7 +13,7 @@ bool COurTestTask::start()
 
 void COurTestTask::update()
 {
-    glClear(GL_COLOR_BUFFER_BIT);
+    //glClear(GL_COLOR_BUFFER_BIT);
     if(CInputTask::mouseDown(SDL_BUTTON_LEFT))
         CKernel::getSingleton().killAllTasks();
 }

@@ -127,7 +127,7 @@ void IMMObject::collectRemainingObjects(bool bEmitWarnings)
         }
         delete liveObjects;
         liveObjects = o;
-    }*/     //destruction after delete situation
+    }*/     //destruction after delete
 }
 
 void* IMMObject::operator new(size_t objsize)
