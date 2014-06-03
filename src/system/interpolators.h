@@ -20,6 +20,9 @@
 
 #include "system/kernel.h"
 
+namespace Experiental
+{
+
 class CInterpolatorUpdater : public ITask
 {
 public:
@@ -89,7 +92,7 @@ public:
     AUTO_SIZE;
 };
 
-
+}
 
 #endif // _SYSTEM_INTERPOLATORS_H_
 

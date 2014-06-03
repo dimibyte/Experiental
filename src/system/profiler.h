@@ -22,6 +22,8 @@
 
 #define MAX_PROFILER_SAMPLES 50
 
+namespace Experiental
+{
 
 class IProfilerOutputHandler
 {
@@ -107,5 +109,6 @@ void PROFILE(std::string Name)
     CProfileSample _profile_sample(Name);
 }
 
+}
 
 #endif      //_PROFILER_H_

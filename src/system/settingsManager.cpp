@@ -20,6 +20,9 @@
 
 #include "system/videoUpdate.h"
 
+namespace Experiental
+{
+
 CSettingsManager::CSettingsManager()
 {
     settingMap.clear();
@@ -149,4 +152,6 @@ void CSettingsManager::parseSetting(std::string str)
     }
     //set the variable
     setVariable(name, value, bias);
+}
+
 }

@@ -18,6 +18,9 @@
 #ifndef _MISC_H_
 #define _MISC_H_
 
+namespace Experiental
+{
+
 inline float clamp(float val, float minVal, float maxVal)
 {
     return std::min(std::max(val, minVal), maxVal);
@@ -28,6 +31,8 @@ float inline pow(float base, int power)
     if(power == 1) return base;
     if(power == 0) return 1;
     return base * pow(base, power - 1);
+}
+
 }
 
 #endif      //_MISC_H_

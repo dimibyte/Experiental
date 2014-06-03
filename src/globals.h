@@ -24,11 +24,16 @@
 #endif
 #endif  //_WIN64
 
+namespace Experiental
+{
+
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
 extern int SCREEN_BPP;
 extern int SCREEN_FPSL;
 
 extern bool bQuit;
+
+}
 
 #endif      //_GLOBALS_H_

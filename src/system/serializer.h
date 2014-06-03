@@ -3,6 +3,9 @@
 
 #include <string>
 
+namespace Experiental
+{
+
 class ISerializer
 {
 public:
@@ -64,6 +67,8 @@ public:
     //should be equal to 0 when we're done
     long getFlow();
 };
+
+}
 
 #endif // _SYSTEM_SERIALIZER_H_
 

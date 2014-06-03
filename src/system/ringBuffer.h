@@ -18,6 +18,9 @@
 #ifndef _RINGBUFFER_H_
 #define _RINGBUFFER_H_
 
+namespace Experiental
+{
+
 template<class T, unsigned long bufSize>
 class ringBuffer
 {
@@ -72,5 +75,7 @@ public:
         write = 1;
     }
 };
+
+}
 
 #endif      //_RINGBUFFER_H_

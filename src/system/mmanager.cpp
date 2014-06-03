@@ -22,6 +22,9 @@
 #include <string.h>         //memcpy
 #include <algorithm>        //std::find
 
+namespace Experiental
+{
+
 //a 'static initialiser' is needed in one of the source files
 //to give the std::list a definetive presence
 IMMObject *IMMObject::liveObjects = 0;
@@ -146,4 +149,6 @@ void IMMObject::operator delete(void* obj)
         heapUsage-=((IMMObject*)obj)->heapAllocSize;
         free(obj);
     }
+}
+
 }

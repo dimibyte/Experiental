@@ -20,6 +20,9 @@
 
 #include "system/kernel.h"
 
+namespace Experiental
+{
+
 class CSoundTask : public ITask
 {
 public:
@@ -37,5 +40,7 @@ public:
 protected:
     CMMPointer< CMMDynamicBlob<bool> > isPaused;
 };
+
+}
 
 #endif      //_SYSTEM_SOUNDTASK_H_

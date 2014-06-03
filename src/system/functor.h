@@ -20,6 +20,9 @@
 
 #include "system/mmanager.h"
 
+namespace Experiental
+{
+
 class Functor : public IMMObject
 {
 public:
@@ -59,5 +62,7 @@ public:
     int operator ()()
     { return (obj->*func)(); }
 };
+
+}
 
 #endif      //_FUNCTOR_H_

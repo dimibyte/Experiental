@@ -1,6 +1,6 @@
 ///Basic startup logo
 
-#include "game/tasks/logo.h"
+#include "logo.h"
 #include "system/inputTask.h"
 #include <GL/gl.h>
 #include <GL/glu.h>

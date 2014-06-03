@@ -17,6 +17,9 @@
 
 #include "system/SDL.h"
 
+namespace Experiental
+{
+
 /*SDL_Window *screen = NULL;
 
 SDL_Surface& initSDL(int screenWidth, int screenHeight)
@@ -51,4 +54,6 @@ SDL_Surface& initSDL(int screenWidth, int screenHeight)
 void cleanupSDL()
 {
     SDL_Quit();
+}
+
 }

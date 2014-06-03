@@ -20,6 +20,9 @@
 
 #include <fstream>
 
+namespace Experiental
+{
+
 const int LOG_APP = 1;
 const int LOG_CLIENT = 2;
 const int LOG_SERVER = 4;
@@ -65,4 +68,5 @@ public:
     void write(int target, unsigned long msgID, ...);
 };
 
+}
 #endif      //_CLOG_H_

@@ -21,6 +21,9 @@
 #include "misc.h"       //clamp
 #include <algorithm>    //std::find
 
+namespace Experiental
+{
+
 std::list< CMMPointer<IInterpolator> > IInterpolator::interpolators;
 
 IInterpolator::IInterpolator(float &t) : target(t)
@@ -90,4 +93,6 @@ void ITimebasedInterpolator::update(float dt)
     calculate();
     if(elapsedTime > totalTime)
         kill();
+}
+
 }

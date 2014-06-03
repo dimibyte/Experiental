@@ -21,6 +21,9 @@
 #include "system/kernel.h"
 #include "system/SDL.h"
 
+namespace Experiental
+{
+
 class CInputTask : public ITask
 {
 public:
@@ -94,5 +97,7 @@ public:
 
     AUTO_SIZE;
 };
+
+}
 
 #endif      //_SYSTEM_INPUTTASK_H_

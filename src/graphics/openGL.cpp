@@ -18,6 +18,9 @@
 #include "graphics/openGL.h"
 #include "globals.h"
 
+namespace Experiental
+{
+
 bool initGL(int screenWidth, int screenHeight)
 {
     glClearColor(0, 0, 0, 0);
@@ -54,4 +57,6 @@ bool initGL(int screenWidth, int screenHeight)
     if(glGetError() != GL_NO_ERROR)
         return false;
     return true;
+}
+
 }

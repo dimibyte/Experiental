@@ -51,8 +51,6 @@
 #include "system/soundTask.h"
 #include "system/inputTask.h"
 #include "system/videoUpdate.h"
-#include "system/testTask.h"
-#include "game/tasks/logo.h"
 
 //miscellanous
 #include "misc.h"

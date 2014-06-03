@@ -33,8 +33,13 @@
 #include <SDL2/SDL_opengl.h>
 #include <SDL2/SDL_net.h>
 
+namespace Experiental
+{
+
 //SDL_Windows& initSDL(int screenWidth, int screenHeight, int screenBPP);
 void cleanupSDL();
 SDL_Surface& returnScreen();
+
+}
 
 #endif      //_SYSTEM_SDL_H_

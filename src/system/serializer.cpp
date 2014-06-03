@@ -1,6 +1,9 @@
 #include "system/serializer.h"
 #include "system/SDL.h"
 
+namespace Experiental
+{
+
 CSerialSizer::CSerialSizer()
 {
     length = 0;
@@ -147,4 +150,6 @@ bool CSerialLoader::hasOverflowed()
 long CSerialLoader::getFlow()
 {
     return length - bytesUsed;
+}
+
 }

@@ -3,6 +3,8 @@
 
 #include "system/kernel.h"
 
+using namespace Experiental;
+
 class CLogoTask : public ITask
 {
 public:

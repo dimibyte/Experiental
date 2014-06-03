@@ -21,6 +21,9 @@
 #include <list>
 #include <algorithm>
 
+namespace Experiental
+{
+
 ITask::ITask()
 {
     canKill = false;
@@ -148,4 +151,6 @@ void CKernel::killAllTasks()
     {
         (*it)->canKill = true;
     }
+}
+
 }

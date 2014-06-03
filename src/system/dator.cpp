@@ -38,6 +38,9 @@ CMMPointer< ListDator<int> > listDator=new ListDator(someValues);
 
 #include "system/dator.h"
 
+namespace Experiental
+{
+
 BaseDator::BaseDator()
 {
 }
@@ -45,4 +48,6 @@ BaseDator::BaseDator()
 BaseDator::BaseDator(BaseDator &b)
 {
     (*this) = b;
+}
+
 }

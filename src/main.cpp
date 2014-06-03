@@ -28,6 +28,9 @@
 #define NOMINMAX
 #include <windows.h>
 #endif
+
+using namespace Experiental;
+
 float s = 0;
 void print_SDL_version(char* preamble, SDL_version* v) {
    printf("%s %u.%u.%u\n", preamble, v->major, v->minor, v->patch);

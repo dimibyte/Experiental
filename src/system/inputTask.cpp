@@ -17,6 +17,9 @@
 
 #include "system/inputTask.h"
 
+namespace Experiental
+{
+
 unsigned char *CInputTask::keys = 0;
 CMMPointer<CMMDynamicBlob<unsigned char> > CInputTask::oldKeys = 0;
 int CInputTask::keyCount = 0;
@@ -59,4 +62,4 @@ void CInputTask::stop()
     oldKeys = 0;
 }
 
-
+}

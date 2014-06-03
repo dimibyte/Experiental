@@ -23,6 +23,9 @@
 #include "system/mmanager.h"
 #include "system/singleton.h"
 
+namespace Experiental
+{
+
 class CClient;
 class CServer;
 
@@ -61,6 +64,6 @@ public:
     long priority;
 };
 
-
+}
 
 #endif      //_SYSTEM_KERNEL_H_

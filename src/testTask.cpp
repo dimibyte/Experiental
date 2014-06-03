@@ -1,6 +1,9 @@
-#include "system/testTask.h"
+#include "testTask.h"
 #include "system/inputTask.h"
 #include <GL/gl.h>
+
+namespace Experiental
+{
 
 COurTestTask::COurTestTask()
 {
@@ -20,4 +23,6 @@ void COurTestTask::update()
 
 void COurTestTask::stop()
 {
+}
+
 }

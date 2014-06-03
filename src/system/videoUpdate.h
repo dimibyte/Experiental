@@ -5,6 +5,9 @@
 #include "system/dator.h"
 #include "system/SDL.h"
 
+namespace Experiental
+{
+
 class CVideoUpdate : public ITask
 {
     SDL_Window *screen;
@@ -21,6 +24,8 @@ public:
     void update();
     void stop();
 };
+
+}
 
 #endif // _SYSTEM_VIDEOUPDATE_H_
 

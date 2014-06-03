@@ -3,6 +3,9 @@
 
 #include "system/kernel.h"
 
+namespace Experiental
+{
+
 class CGlobalTimer : public ITask
 {
 public:
@@ -20,5 +23,7 @@ public:
 
     void reset();
 };
+
+}
 
 #endif      //_SYSTEM_GLOBALTIMER_H_

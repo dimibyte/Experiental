@@ -4,6 +4,9 @@
 #include <SDL/SDL_opengl.h>
 #include "system/CLog.h"
 
+namespace Experiental
+{
+
 CMMPointer<Dator<int> > CVideoUpdate::screenWidth = 0;
 CMMPointer<Dator<int> > CVideoUpdate::screenHeight = 0;
 CMMPointer<Dator<int> > CVideoUpdate::screenBPP = 0;
@@ -77,4 +80,6 @@ void CVideoUpdate::update()
 void CVideoUpdate::stop()
 {
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
+}
+
 }

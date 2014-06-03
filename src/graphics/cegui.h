@@ -27,6 +27,9 @@
 #include <CEGUI/CEGUI.h>
 #include "system/SDL.h"
 
+namespace Experiental
+{
+
 class GUI
 {
 public:
@@ -40,5 +43,6 @@ public:
     static void create_gui( CEGUI::WindowManager & winManager );
 };
 
+}
 
 #endif      //_CEGUI_H_

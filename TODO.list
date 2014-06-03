@@ -1,29 +1,44 @@
-
+In order to complete in categories:
 
 * --- Engine --- *
 
-NONE Appstate task/Appstate factory
+NONE Appstate task/Current Appstate/Appstate factory
 
-WIP CEGUI for menus, interface
+WIP CEGUI for menus, interface (or another RTT GUI)
 
-NONE Clean up old architecture ("Game" class) <-- maybe sth will be used in Gamestate Factory
+NONE Lua script engine  <-- more ideas about gameplay
 
 NONE tinyXML as main XML parser     <-- do we really need this?
 
-NONE Planet generator
-
-NONE Player class
-
-NONE Bullet physics     <-- engine
-
-NONE Script engine  <-- more ideas
-
 NONE Audio (FLAC, OpenAL+SDL2-Mixer)   <-- this should be done after actual gameplay realization
+
+NONE Bullet/Newton,ODE physics engine (or another good GPU collision detection engine/system)
+
+NONE GSound (need to port to OSS, thus under question)
+
+* --- Server --- *
+
+NONE sdl-net localhost broadcast
+
+* --- Client --- *
+
+NONE sdl-net localhost join
 
 * --- Game --- *
 
 NONE Menu and interface is on surface, using RenderToTexture method
 
+NONE Planet generator
 
+NONE Player class
 
 * --- Ideas --- *
+
+
+* --- Marking legend --- *
+
+NONE => Not realised yet. Not even started.
+
+WIP => Work in progress. Maybe some difficulties occure.
+
+DONE => Implemented.

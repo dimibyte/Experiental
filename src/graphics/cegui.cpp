@@ -19,6 +19,9 @@
 #include <string>
 #include <CEGUI/RendererModules/OpenGL/CEGUIOpenGLRenderer.h>
 
+namespace Experiental
+{
+
 const std::string & CEGUIInstallBasePath = "/usr" ;
 
 // Input management: from SDL to CEGUI.
@@ -289,5 +292,7 @@ void GUI::create_gui( CEGUI::WindowManager & winManager )
   myWin.setMinSize( CEGUI::UVector2( cegui_reldim(0.1f), cegui_reldim(0.1f) ) ) ;
 
   myWin.setText( "Hello World! This is a minimal SDL+OpenGL+CEGUI test." ) ;
+
+}
 
 }

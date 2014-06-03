@@ -22,6 +22,9 @@
 #include "system/profiler.h"
 #include "system/CLog.h"
 
+namespace Experiental
+{
+
 int CProfileSample::lastOpenedSample = -1;
 int CProfileSample::openSampleCount = 0;
 CProfileSample::profileSample CProfileSample::samples[MAX_PROFILER_SAMPLES];
@@ -235,5 +238,4 @@ void CProfileSample::resetAll()
     }
 }
 
-
-
+}

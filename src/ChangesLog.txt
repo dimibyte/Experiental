@@ -1,0 +1,8 @@
+03 June 2014
+   released version 0.0.0 of Experiental
+
+     Change log:
+        -New: Autoversion.
+        -Cleaned: Application specific files are in main folder now.
+        -New: Triggers implementation.
+

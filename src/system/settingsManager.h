@@ -25,6 +25,9 @@
 #include "system/mmanager.h"
 #include "system/dator.h"
 
+namespace Experiental
+{
+
 class CSettingsManager : public Singleton<CSettingsManager>
 {
 public:
@@ -43,5 +46,7 @@ public:
 protected:
     std::map<std::string, CMMPointer<BaseDator> > settingMap;
 };
+
+}
 
 #endif      //_SYSTEM_SETTINGSMANAGER_H_

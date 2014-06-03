@@ -18,6 +18,9 @@
 #include "sound/almix.h"
 #include <iostream>
 
+namespace Experiental
+{
+
 COpenALMixer::COpenALMixer()
 {
     ALuint buffer;
@@ -86,6 +89,7 @@ void COpenALMixer::playSound(std::string wavfile, bool loop = false)
     alSourcePlay(source);
 }
 
+}
 
 /*/
 

@@ -20,11 +20,6 @@
 #include "system/SDL.h"
 #include "graphics/openGL.h"
 //#include "graphics/cegui.h"
-#include "system/testTask.h"
-
-#include "game/tasks/logo.h"
-
-
 
 /*void Game::Start()
 {

@@ -30,6 +30,9 @@
 #include <IL/il.h>
 #include <IL/ilu.h>
 
+namespace Experiental
+{
+
 typedef struct TextureImage {
     GLubyte *imageData;     //данные текстуры
     GLuint bpp;             //Байт за пиксель
@@ -45,6 +48,8 @@ public:
     void LoadTexture(ILenum FileType, char *filename, TextureImage *texture);
     void FreeTexture(TextureImage *texture);
 };
+
+}
 
 #endif
 

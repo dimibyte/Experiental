@@ -20,6 +20,9 @@
 
 #include <cassert>
 
+namespace Experiental
+{
+
 template<typename T>
 class Singleton
 {
@@ -55,5 +58,7 @@ public:
 };
 
 template<typename T> T* Singleton <T>::ms_singleton = 0;
+
+}
 
 #endif      //_SINGLETON_H_

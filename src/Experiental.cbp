@@ -90,8 +90,6 @@
 		<Unit filename="engine.h" />
 		<Unit filename="game/example.cpp" />
 		<Unit filename="game/example.h" />
-		<Unit filename="game/tasks/logo.cpp" />
-		<Unit filename="game/tasks/logo.h" />
 		<Unit filename="globals.cpp" />
 		<Unit filename="globals.h">
 			<Option target="LDebug64" />
@@ -115,6 +113,8 @@
 		<Unit filename="graphics/openGL.h">
 			<Option target="LDebug64" />
 		</Unit>
+		<Unit filename="logo.cpp" />
+		<Unit filename="logo.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h">
 			<Option target="LDebug64" />
@@ -125,10 +125,6 @@
 			<Option target="WRelease64" />
 		</Unit>
 		<Unit filename="sound/almix.h">
-			<Option target="LRelease64" />
-			<Option target="WRelease64" />
-		</Unit>
-		<Unit filename="sound/fmod.h">
 			<Option target="LRelease64" />
 			<Option target="WRelease64" />
 		</Unit>
@@ -172,16 +168,25 @@
 		<Unit filename="system/singleton.h" />
 		<Unit filename="system/soundTask.cpp" />
 		<Unit filename="system/soundTask.h" />
-		<Unit filename="system/testTask.cpp" />
-		<Unit filename="system/testTask.h" />
+		<Unit filename="system/triggers.cpp" />
+		<Unit filename="system/triggers.h" />
 		<Unit filename="system/videoUpdate.cpp" />
 		<Unit filename="system/videoUpdate.h" />
+		<Unit filename="testTask.cpp" />
+		<Unit filename="testTask.h" />
+		<Unit filename="version.h" />
 		<Extensions>
 			<envvars />
 			<code_completion>
 				<search_path add=".\" />
 			</code_completion>
 			<debugger />
+			<AutoVersioning>
+				<Scheme minor_max="10" build_max="0" rev_max="0" rev_rand_max="10" build_times_to_increment_minor="100" />
+				<Settings autoincrement="1" date_declarations="1" update_manifest="1" do_auto_increment="0" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="version.h" />
+				<Changes_Log show_changes_editor="1" app_title="released version %M.%m.%b of %p" changeslog_path="ChangesLog.txt" />
+				<Code header_guard="_VERSION_H_" namespace="AutoVersion" prefix="" />
+			</AutoVersioning>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

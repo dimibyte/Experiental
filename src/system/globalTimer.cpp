@@ -1,6 +1,9 @@
 #include "system/globalTimer.h"
 #include <SDL/SDL.h>
 
+namespace Experiental
+{
+
 float CGlobalTimer::dT = 0.0f;
 unsigned long CGlobalTimer::thisFrameIndex = 0;
 unsigned long CGlobalTimer::lastFrameIndex = 0;
@@ -37,5 +40,7 @@ void CGlobalTimer::reset()
 
 void CGlobalTimer::stop()
 {
+
+}
 
 }

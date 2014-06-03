@@ -3,6 +3,9 @@
 
 #include "system/kernel.h"
 
+namespace Experiental
+{
+
 class COurTestTask : public ITask
 {
 public:
@@ -14,6 +17,7 @@ public:
     AUTO_SIZE;
 };
 
+}
 
 #endif // _SYSTEM_TESTTASK_H_
 

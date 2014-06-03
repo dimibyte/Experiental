@@ -18,6 +18,9 @@
 #include "system/soundTask.h"
 //#include <fmodex/fmod.hpp>
 
+namespace Experiental
+{
+
 CSoundTask::CSoundTask()
 {
 }
@@ -79,3 +82,5 @@ void CSoundTask::stop()
 {/*
     FSOUND_Close();
 */}
+
+}

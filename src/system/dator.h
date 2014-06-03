@@ -26,6 +26,9 @@
 
 #include "system/mmanager.h"
 
+namespace Experiental
+{
+
 class BaseDator : public IMMObject
 {
 protected:
@@ -133,5 +136,7 @@ public:
 
     AUTO_SIZE;
 };
+
+}
 
 #endif      //_DATOR_H_

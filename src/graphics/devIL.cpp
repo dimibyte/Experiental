@@ -18,6 +18,9 @@
 #include "graphics/devIL.h"
 #include "system/CLog.h"
 
+namespace Experiental
+{
+
 ///CTexture
 
 CTexture::CTexture() {
@@ -66,4 +69,6 @@ void CTexture::LoadTexture(ILenum FileType, char *filename, TextureImage *textur
 
 void CTexture::FreeTexture(TextureImage *texture) {
     //?
+}
+
 }

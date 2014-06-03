@@ -25,6 +25,10 @@
 #endif  //_WIN64
 
 #include "engine.h"
+#include "testTask.h"
+#include "logo.h"
+
+using namespace Experiental;
 
 class Game
 {

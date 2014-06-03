@@ -27,6 +27,11 @@
 #include "system/SDL.h"
 #include <GL/glu.h>
 
+namespace Experiental
+{
+
 bool initGL(int screenWidth, int screeHeight);
+
+}
 
 #endif      //_GRAPHICS_INIT_H_

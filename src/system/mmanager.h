@@ -29,6 +29,9 @@
 //define a quick macro to make things easier on derived classes
 #define AUTO_SIZE unsigned long size(){ return sizeof(*this); }
 
+namespace Experiental
+{
+
 class IMMObject
 {
 private:
@@ -207,5 +210,7 @@ public:
         return dataSize;
     }
 };
+
+}
 
 #endif      //_IMMOBJECT_H_
